@@ -30,7 +30,7 @@ If you do not wish to download or unzip, you can use the excel file we provided 
 Run the GetExcel.py file to convert the answer results into an excel file (optional, as we have already provided the excel file).
 
 ```sh
-CUDA_VISIBLE_DEVICES=0 python GetExcel.py
+CUDA_VISIBLE_DEVICES=0 python get_excel.py
 ```
 
 Note that if you do not have a GPU, you can use the excel file we provided for evaluation.

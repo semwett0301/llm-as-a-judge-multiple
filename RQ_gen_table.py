@@ -52,7 +52,7 @@ def readnum(judge='gpt-3.5-turbo',version='likert',main_result=True):
     return sum(pure_incon_rate)/len(pure_incon_rate),sum(EqualIBMsplit_incon_rate)/len(EqualIBMsplit_incon_rate),gap,sum(EqualIBMsplit_fix_rate)/len(EqualIBMsplit_fix_rate), sum(eqaulsplit_incon_rate)/len(eqaulsplit_incon_rate),sum(IBMsplit_incon_rate)/len(IBMsplit_incon_rate),sum(equalsplit_fix_rate)/len(equalsplit_fix_rate),sum(IBMsplit_fix_rate)/len(IBMsplit_fix_rate)
 
 
-def main_result_consistent(versions=['old','new','likert'], judges=['gpt4newtx','gpt-3.5-turbo','qwen','chatglm','claude2']):
+def main_result_consistent(versions=['old','new','likert'], judges=['gpt-3.5-turbo','qwen','chatglm','claude2']):
     upnums = []
     for version in versions:
         for judge in judges:
@@ -72,7 +72,7 @@ def main_result_consistent(versions=['old','new','likert'], judges=['gpt4newtx',
     print('upnums is {}, average is {}'.format(upnums, sum(upnums)/len(upnums)))
 
 
-def draw_ablation_pic_way2(draw='incon_rate',judges=['claude2','qwen','chatglm','gpt-3.5-turbo','gpt4newtx']):
+def draw_ablation_pic_way2(draw='incon_rate',judges=['claude2','qwen','chatglm','gpt-3.5-turbo']):
     i = 0
     fig, ax = plt.subplots(figsize=(7,2))
     hatches = ['', '\\\\\\', '...', '\\']
@@ -143,10 +143,6 @@ def draw_ablation_pic_way2(draw='incon_rate',judges=['claude2','qwen','chatglm',
 
     savename = r'./ablation-gpt4.pdf'
     plt.savefig(savename, bbox_inches='tight')
-
-main_result_consistent()
-draw_ablation_pic_way2(draw='fix_rate')
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--RQ1", help="table for RQ1", action="store_true")

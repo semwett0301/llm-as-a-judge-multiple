@@ -50,7 +50,6 @@ def query_all(model1='llama-13b', model2='vicuna-13b', judger='gpt-3.5-turbo',sp
     model1_dir = answer_dir + '/' +model1+'.jsonl'
     model2_dir = answer_dir + '/' +model2+'.jsonl'
     model1_answers,model2_answers = [],[]
-    output_file = output_dir + '/' + query_type +'_'+'temp'+ str(temperature)+ '_' + model1 + '_'+model2+'_'+ version + '_' + judger+'.jsonl'
     with open(model1_dir,'r',encoding='utf-8') as f, open(model2_dir,'r',encoding='utf-8') as f2:
         model1_answers_str = f.readlines()
         model2_answers_str = f2.readlines()
@@ -59,7 +58,7 @@ def query_all(model1='llama-13b', model2='vicuna-13b', judger='gpt-3.5-turbo',sp
         model2_answer = json.loads(model2_answer_str)
         model1_answers.append(model1_answer)
         model2_answers.append(model2_answer)
-    questions_str,questions = [],[]
+
     with open(question_dir,'r',encoding='utf-8') as f:
         questions_str = f.readlines()
     all_token, add_token = 0,0
